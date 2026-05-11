@@ -1,0 +1,36 @@
+# Anchor
+.anchor/
+target/
+**/*.rs.bk
+test-ledger/
+
+# Next.js
+.next/
+.next/dev/
+out/
+
+# Node
+node_modules/
+.yarn/
+*.log
+npm-debug.log*
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Local state (keypairs, sqlite)
+.data/
+
+# Submission artifacts (kept locally only)
+SUBMISSION.md
+SUBMISSION_STEP2.md
+DEMO.md
+
+# Internal docs (kept locally only)
+docs/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /share
+
+Sitemap: https://shopier.app/sitemap.xml

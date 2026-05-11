@@ -1,0 +1,188 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════════
+   SHOPIER DESIGN SYSTEM
+   Two accents only:
+     · amber   — live / now / auto-buy / Jupiter / countdown
+     · emerald — active / verified / settled / SNS / policy
+   Plus rose strictly for errors. Drop sky/fuchsia/blue/purple decoration.
+
+   Border radius scale — pick from these, no others:
+     · rounded-lg     8px   — small chips, compact toggles
+     · rounded-2xl    16px  — cards, panels, inputs
+     · rounded-3xl    24px  — heroes, featured cards
+     · rounded-full         — pills, avatars
+
+   Border opacity — pick from these:
+     · border-border       default surface dividers
+     · border-border/40    subtle / inset
+
+   Tone tokens (via Tailwind):
+     · text-foreground        primary
+     · text-muted-foreground  secondary
+   Avoid raw hex; use these everywhere.
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  --background: #fafafa;
+  --foreground: #0a0a0a;
+  --card: #ffffff;
+  --card-foreground: #0a0a0a;
+  --muted: #f5f5f5;
+  --muted-foreground: #737373;
+  --border: #e5e5e5;
+  --accent: #0a0a0a;
+  --accent-foreground: #fafafa;
+}
+
+/* Class-based dark mode — controlled by useTheme hook on <html>.
+   The default dark class is applied in layout.tsx for SSR; the hook then
+   swaps to light/system based on user preference after hydration. */
+:root.dark {
+  --background: #0a0a0a;
+  --foreground: #fafafa;
+  --card: #141414;
+  --card-foreground: #fafafa;
+  --muted: #1a1a1a;
+  --muted-foreground: #a3a3a3;
+  --border: #262626;
+  --accent: #fafafa;
+  --accent-foreground: #0a0a0a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-display-face);
+}
+
+/* Subtle entrance animation — used by motion classes below */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-up {
+  animation: fadeUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.fade-up-delay-1 {
+  animation: fadeUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.08s both;
+}
+.fade-up-delay-2 {
+  animation: fadeUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.16s both;
+}
+.fade-up-delay-3 {
+  animation: fadeUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.24s both;
+}
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(245, 158, 11, 0);
+  }
+}
+.pulse-glow {
+  animation: pulseGlow 1.6s ease-in-out infinite;
+}
+
+/* Success celebration — used when a tx confirms or a watch settles.
+   Subtle scale + emerald glow then settle. Stripe-grade satisfaction. */
+@keyframes celebrate {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+  20% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0.25);
+  }
+  60% {
+    transform: scale(1);
+    box-shadow: 0 0 0 12px rgba(16, 185, 129, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+.celebrate {
+  animation: celebrate 0.9s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+}
+
+/* Skeleton shimmer — used for loading states across the app instead of
+   text "loading…" or bare Loader2 spinners. Better felt-time. */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--muted) 0%,
+    color-mix(in srgb, var(--muted) 70%, var(--background)) 50%,
+    var(--muted) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s linear infinite;
+}
+
+/* Number tick — used when spending bound updates after a buy.
+   Tiny upward scale + brief opacity pulse so the change is felt. */
+@keyframes numberTick {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  40% {
+    transform: translateY(-3px);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.number-tick {
+  animation: numberTick 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Hide scrollbar for feed */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Snap scroll for feed */
+.snap-feed {
+  scroll-snap-type: y mandatory;
+}
+.snap-feed > * {
+  scroll-snap-align: start;
+}
