@@ -53,9 +53,9 @@ export default function RealTimeBanner() {
           <div>
             <p className="text-sm font-semibold">Enable real-time shopping</p>
             <p className="mt-1 text-muted-foreground">
-              Generates a session key encrypted with your wallet. Your agent signs
-              purchases under these bounds without Phantom popups. 24-hour
-              expiry. Bounded on-chain — the master spending policy is the ceiling.
+              Generates a session key encrypted with your wallet. Your agent
+              signs purchases inside these limits, no Phantom popups, 24-hour
+              expiry. The master spending policy still enforces its caps on-chain.
             </p>
           </div>
           <button

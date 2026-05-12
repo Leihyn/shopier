@@ -3,6 +3,7 @@ import { Inter, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import SolanaProviders from "@/components/wallet/SolanaProviders";
 import BridgeModePill from "@/components/BridgeModePill";
+import DemoDisclaimer from "@/components/DemoDisclaimer";
 import LiveTicker from "@/components/live/LiveTicker";
 
 const inter = Inter({
@@ -49,6 +50,7 @@ export default function RootLayout({
           <LiveTicker />
           {children}
           <BridgeModePill />
+          <DemoDisclaimer />
         </SolanaProviders>
       </body>
     </html>

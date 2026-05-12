@@ -174,7 +174,7 @@ export default function AgentWalletPage() {
           Spending policy · spending_policy program
         </div>
         <h1 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
-          Your spending bound.
+          Your spending policy.
         </h1>
         <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
           Stored as a PDA seeded by your wallet. Every agent purchase

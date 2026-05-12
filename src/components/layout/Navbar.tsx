@@ -2,19 +2,18 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Bot, User, TrendingUp } from "lucide-react";
+import { Home, Bot, User, TrendingUp, Users, Network } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Wordmark } from "@/components/ui/Mark";
 import WalletMenu from "./WalletMenu";
 
-// Slimmed primary nav to the four demo-critical surfaces.
-// /c (Creators) and /architecture remain reachable via in-page links and
-// direct URL — the nav stays focused on the demo arc.
 const navItems = [
   { href: "/", icon: Home, label: "Home" },
   { href: "/trending", icon: TrendingUp, label: "Trending" },
   { href: "/agent", icon: Bot, label: "Agent" },
   { href: "/twin", icon: User, label: "Twin" },
+  { href: "/c", icon: Users, label: "Creators" },
+  { href: "/architecture", icon: Network, label: "Architecture" },
 ];
 
 export default function Navbar() {

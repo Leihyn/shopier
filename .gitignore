@@ -20,13 +20,20 @@ npm-debug.log*
 .env.local
 .env.*.local
 
-# Local state (keypairs, sqlite)
-.data/
+# Local state — keypairs gitignored, .db files included for Vercel build
+.data/*
+!.data/looks.db
+!.data/watches.db
 
 # Submission artifacts (kept locally only)
 SUBMISSION.md
 SUBMISSION_STEP2.md
+STEP4_ACCELERATOR.md
+ABOUT_YOU.md
 DEMO.md
+DEMO_VIDEO.md
+DEMO_VIDEO_PART2.md
+PITCH_VIDEO.md
 
 # Internal docs (kept locally only)
 docs/

@@ -566,7 +566,7 @@ export default function AgentPage() {
                 </h2>
                 <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
                   Identifies the garments, prices each piece across real
-                  retailers, and settles in USDC inside your spending bound.
+                  retailers, and pays in USDC inside your spending policy.
                 </p>
                 <div className="mt-5 flex flex-wrap gap-2">
                   <button

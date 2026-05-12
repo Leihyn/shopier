@@ -21,7 +21,7 @@ export default function AgentMap() {
       identity: "your wallet + your digital twin · Phantom-signed",
       bound: "spending_policy PDA on Solana",
       example:
-        "Decisions calibrated to your measurements/palette/taste · settles USDC under your bound · auto-approves below threshold · hard-blocks above max-per-tx",
+        "Decisions tuned to your measurements, palette, and taste · pays USDC under the policy · auto-approves below threshold · hard-blocks above max-per-tx",
     },
     {
       icon: <Building2 size={16} />,
@@ -71,7 +71,7 @@ export default function AgentMap() {
                 {c.identity}
               </p>
               <p className="mt-2.5 text-[11px] leading-relaxed text-muted-foreground">
-                <span className="font-medium text-foreground">Bounded by:</span>{" "}
+                <span className="font-medium text-foreground">Policy:</span>{" "}
                 {c.bound}
               </p>
               <p className="mt-1.5 text-[11px] leading-relaxed text-muted-foreground">
@@ -83,9 +83,7 @@ export default function AgentMap() {
         })}
       </div>
       <p className="mt-3 text-center text-[11px] text-muted-foreground">
-        Your agent is the star. The other three exist to keep it bounded,
-        funded, and informed. Each one&apos;s authority is enforced by code on
-        a block explorer.
+        Each agent&apos;s authority is enforced by a different Solana program.
       </p>
     </div>
   );

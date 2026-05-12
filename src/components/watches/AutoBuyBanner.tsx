@@ -272,8 +272,8 @@ function Banner({
               Auto-buying for you · {entry.celebSlug} · ${entry.totalBudgetUsd}
             </p>
             <p className="text-[10px] leading-tight text-muted-foreground">
-              Settling in {remaining} seconds — agent acts within your
-              spending bound. Tap cancel to abort.
+              Settles in {remaining} seconds — spending_policy
+              re-validates the cap. Tap cancel to abort.
             </p>
           </div>
           <div className="shrink-0 font-mono text-3xl font-bold tabular-nums text-amber-700 dark:text-amber-400">
