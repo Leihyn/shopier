@@ -2,11 +2,12 @@ import Database from "better-sqlite3";
 import { customAlphabet } from "nanoid";
 import path from "path";
 import fs from "fs";
+import { dataDir } from "@/lib/dataDir";
 
 // SQLite for v0 — zero infra, single file, easy to inspect. Swap to Postgres
 // when there's a reason. The .data/ directory is gitignored.
 
-const DATA_DIR = path.join(process.cwd(), ".data");
+const DATA_DIR = dataDir();
 if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
 const DB_PATH = path.join(DATA_DIR, "looks.db");
 
